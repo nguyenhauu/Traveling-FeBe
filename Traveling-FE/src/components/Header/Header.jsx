@@ -24,8 +24,7 @@ const Header = () => {
     return <header className="">
         <Container>
             <Row>
-                <div className="nav__wrapper d-flex align-items-center
-                justify-content-between">
+                <div className="nav__wrapper d-flex align-items-center justify-content-between">
                 {/* ============ logo ============ */}
                 <div className="logo">
                     <img src={logo} alt="" className="" />
@@ -33,9 +32,9 @@ const Header = () => {
                 {/* ============ logo end ============ */}
                 {/* ============ menu start ============ */}
                 <div className="navigation">
-                    <ul className="menu" d-flex align-items-center gap-5>
+                    <ul className="menu d-flex align-items-center gap-5">
                         {nav__links.map((item, index) => (
-                            <li className="nav-item" key={index}>
+                            <li className="nav__item" key={index} >
                                 <NavLink 
                                     to={item.path} 
                                     className={navClass => 
