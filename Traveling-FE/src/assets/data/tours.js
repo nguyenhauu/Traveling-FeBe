@@ -1,10 +1,11 @@
-import tourImg01 from "../images/tour-img01.jpg";
-import tourImg02 from "../images/tour-img02.jpg";
-import tourImg03 from "../images/tour-img03.jpg";
-import tourImg04 from "../images/tour-img04.jpg";
-import tourImg05 from "../images/tour-img05.jpg";
-import tourImg06 from "../images/tour-img06.jpg";
-import tourImg07 from "../images/tour-img07.jpg";
+import tourImg01 from "../images/img01.jpg";
+import tourImg02 from "../images/img02.jpg";
+import tourImg03 from "../images/img03.jpg";
+import tourImg04 from "../images/img04.jpg";
+import tourImg05 from "../images/img05.jpg";
+import tourImg06 from "../images/img06.jpg";
+import tourImg07 from "../images/img07.jpg";
+import tourImg08 from "../images/img08.jpg";
 
 const tours = [
   {
@@ -19,6 +20,10 @@ const tours = [
       {
         name: "jhon doe",
         rating: 4.6,
+      },
+      {
+        name: "jhon doe",
+        rating: 5,
       },
     ],
     avgRating: 4.5,
@@ -142,13 +147,9 @@ const tours = [
     maxGroupSize: 8,
     desc: "this is the description",
     reviews: [
-      {
-        name: "jhon doe",
-        rating: 4.6,
-      },
     ],
     avgRating: 4.5,
-    photo: tourImg03,
+    photo: tourImg08,
     featured: false,
   },
 ];
