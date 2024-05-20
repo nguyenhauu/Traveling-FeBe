@@ -33,9 +33,11 @@ import "./tour-card.css";
                   )}
                </span>
             </div>
-            <h5 className="tour__title">
-               <Link to={'/tours/${id}'}>{title}</Link>
-            </h5>
+            <div key={tour.id}>
+          <h5 className="tour__title">
+            <Link to={`/tours/${tour.id}`}>{tour.title}</Link>
+          </h5>
+        </div>
 
             <div className="card__bottom d-lex align-items-center justify-content-between mt-3">
                <h5>

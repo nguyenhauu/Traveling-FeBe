@@ -53,6 +53,7 @@ const tours = [
     title: "Snowy Mountains, Thailand",
     city: "Thailand",
     distance: 500,
+    address: 'Somewhere',
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -71,6 +72,7 @@ const tours = [
     title: "Beautiful Sunrise, Thailand",
     city: "Thailand",
     distance: 500,
+    address: 'Somewhere',
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -89,6 +91,7 @@ const tours = [
     title: "Nusa Pendia Bali, Indonesia",
     city: "Indonesia",
     distance: 500,
+    address: 'Somewhere',
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -107,6 +110,7 @@ const tours = [
     title: "Cherry Blossoms Spring",
     city: "Japan",
     distance: 500,
+    address: 'Somewhere',
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -125,6 +129,7 @@ const tours = [
     title: "Holmen Lofoten",
     city: "France",
     distance: 500,
+    address: 'Somewhere',
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -143,6 +148,7 @@ const tours = [
     title: "Snowy Mountains, Thailand",
     city: "Thailand",
     distance: 500,
+    address: 'Somewhere',
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
@@ -152,6 +158,8 @@ const tours = [
     photo: tourImg08,
     featured: false,
   },
+  
 ];
+
 
 export default tours;
