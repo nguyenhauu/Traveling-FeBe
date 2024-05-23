@@ -13,8 +13,8 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 const corsOptions = {
-  origin: true,
-  Credential: true,
+  origin: "http://localhost:3000",
+  credentials: true,
 };
 
 // middleware

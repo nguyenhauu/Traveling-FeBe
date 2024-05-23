@@ -1,51 +1,104 @@
-import React, { useState } from "react";
-import "../styles/register.css";
-import Axios from 'axios';
+import React, { useState, useContext } from "react";
+
+import { Container, Row, Col, Form, FormGroup, Button } from "reactstrap";
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/login.css";
+import { AuthContext } from "../context/AuthContext";
+import { BASE_URL } from "../utils/config";
+
+// import registerImg from "../assets/images/register.png";
+// import userIcon from "../assets/images/user.png";
 
 const Register = () => {
+  const [credentials, setCredentials] = useState({
+    userName: undefined,
+    email: undefined,
+    password: undefined,
+  });
 
-//     const [username, setUsername] = useState('')
-//     const [email, setEmail] = useState('')
-//     const [password, setPassword] = useState('')
+  const { dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+  const handleClick = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`${BASE_URL}/auth/register`, {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
+      const result = await res.json();
+      if (res.ok) alert(result.message);
+      dispatch({ type: "REGISTER_SUCCESS" });
+      navigate("/login");
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+  return (
+    <section>
+      <Container>
+        <Row>
+          <Col lg="8" className="m-auto">
+            <div className="Login__container d-flex justify-conten-between">
+              <div className="login__">
+                {/* <img src={registerImg} alt="" /> */}
+              </div>
 
-//     const handleSubmit = (e) => {
-//         e.preventDefault()
-//         Axios.post('/auth/register', {
-//             username, 
-//             email, 
-//             password,
-//         }).then(response => {
-//             if(response.data.status) {
-//                 navigator('/login')
-//             }
-//         }).catch(err => {
-//             console.log(err)
-//         })
-//     }
-
-
-    return (
-        <div>register</div>
-//         <div className="register">
-//             <form className="register__form" onSubmit={handleSubmit}>
-//                 <h2>Register</h2>
-//                 <label htmlFor="username">Username:</label>
-//                 <input type="text" placeholder='Username'
-//                     onChange={(e) => setUsername(e.target.value)} />
-
-//                 <label htmlFor="email">Email:</label>
-//                 <input type="email" autoComplete='off' placeholder='Email'
-//                     onChange={(e) => setEmail(e.target.value)} />
-
-//                 <label htmlFor="password">Password:</label>
-//                 <input type="password" placeholder='******'
-//                     onChange={(e) => setPassword(e.target.value)} />
-
-//                 <button type='submit'>Register</button>
-//                 <p>Have an Account? <a href="/login">Login</a></p> 
-//             </form>
-//         </div>
-    )
+              <div className="login__form">
+                <div className="user">
+                  {/* <img src={userIcon} alt="" /> */}
+                </div>
+                <h2>Register</h2>
+                <Form onSubmit={handleClick}>
+                  <FormGroup>
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      required
+                      id="username"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      required
+                      id="email"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      required
+                      id="password"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
+                  <Button
+                    className="btn secondary__btn auth__btn"
+                    type="submit"
+                  >
+                    Create account
+                  </Button>
+                </Form>
+                <p>
+                  Already have an account? <Link to="/login">Login</Link>
+                </p>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
 };
 
 export default Register;

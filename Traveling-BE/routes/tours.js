@@ -13,7 +13,7 @@ import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
-router.post("/", verifyAdmin, createTour);
+router.post("/", createTour);
 router.delete("/:id", verifyAdmin, deleteTour);
 router.put("/:id", verifyAdmin, updateTour);
 router.get("/:id", getSingleTour);
